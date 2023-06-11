@@ -1,9 +1,9 @@
 export default function Home() {
   return (
-    <p>
-      The Distributed Storage System microservices is an application that stores files in shards. Basically the 
-      file gets split into different chunks and gets uploaded to diffreent buckets. The main function that does this 
-      sharding and merging the file is done by two different microservices.
-    </p>
+    <figure className="max-w-screen-md">
+    <h1 className="flex items-center mb-4 text-4xl font-extrabold leading-none tracking-tight text-gray-900 md:text-5xl lg:text-6xl dark:text-white">
+      Welcome to Distributed Storage System
+      </h1>
+    </figure>
   )  
 }
