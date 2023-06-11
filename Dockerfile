@@ -1,12 +1,12 @@
 # Install yarn
-FROM node:20.2.0-alpine AS deps
+FROM node:18.14.0-alpine AS deps
 RUN apk add --no-cache libc6-compat
 WORKDIR /app
 COPY package.json yarn.lock ./
 RUN yarn install --frozen-lockfile
 
 # Build the project
-FROM node:20.2.0-alpine AS builder
+FROM node:18.14.0-alpine AS builder
 
 WORKDIR /app
 
@@ -17,11 +17,7 @@ COPY . .
 RUN yarn build
 
 # Run the project
-FROM node:20.2.0-alpine AS runner
-WORKDIR /app
-
-ENV NODE_ENV production
-
+FROM node:18.14.0-alpine AS runner
 WORKDIR /app
 
 COPY --from=builder /app/public ./public
